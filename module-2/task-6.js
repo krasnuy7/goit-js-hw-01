@@ -13,7 +13,7 @@ if (input === null) {
   for (const number of numbers) {
     total += number;
   }
-  if (numbers.length === undefined) {
+  if (numbers.length === undefined || null) {
     console.log("Массив пуст");
   } else {
     console.log(`Общая сумма чисел равна ${total}`);
