@@ -1,6 +1,5 @@
 let input = null;
 const numbers = [];
-numbers.push(Number(input));
 let total = 0;
 
 do {
@@ -14,7 +13,7 @@ if (input === null) {
   for (const number of numbers) {
     total += number;
   }
-  if (numbers.length === 0) {
+  if (numbers.length === undefined) {
     console.log("Массив пуст");
   } else {
     console.log(`Общая сумма чисел равна ${total}`);
