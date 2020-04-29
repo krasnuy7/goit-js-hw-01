@@ -79,7 +79,7 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
-    if (value > this.speed) {
+    if (this.speed - value <= 0) {
       console.log("Попробуйте еще");
     } else {
       this.speed -= value;
@@ -91,7 +91,9 @@ class Car {
    * но только в том случае если машина заведена!
    */
   drive(hours) {
-    this.distance += this.speed * hours;
+    if (this.isOn === true) {
+      this.distance += this.speed * hours;
+    }
   }
 }
 
