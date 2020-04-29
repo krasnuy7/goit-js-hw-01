@@ -79,7 +79,7 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
-    if (this.speed - value <= 0) {
+    if (this.speed - value < 0) {
       console.log("Попробуйте еще");
     } else {
       this.speed -= value;
