@@ -20,6 +20,6 @@ const images = [
 for (const img of images) {
   gallery.insertAdjacentHTML(
     "beforeend",
-    `<li><img src='${img.url}' atl='${img.alt}'></li>`
+    `<li class='li'><img class='img' src='${img.url}' atl='${img.alt}'></li>`
   );
 }
