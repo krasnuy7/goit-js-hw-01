@@ -1,9 +1,9 @@
 let input = document.querySelector("#validation-input");
 
-input.addEventListener("input", correctInput);
+input.addEventListener("change", correctInput);
 
 function correctInput() {
-  if (input.value.length >= this.dataset.length) {
+  if (input.value.length == this.dataset.length) {
     input.classList.add("valid");
     input.classList.remove("invalid");
   } else {
