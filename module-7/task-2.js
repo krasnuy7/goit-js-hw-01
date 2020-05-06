@@ -8,6 +8,5 @@ const ingredients = [
   "Приправы",
 ];
 
-for (const ingredient of ingredients) {
-  ul.innerHTML += `<li>${ingredient}</li>`;
-}
+let arr = ingredients.map((item) => `<li>${item}</li>`).join("");
+ul.insertAdjacentHTML("beforeend", arr);

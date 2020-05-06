@@ -17,9 +17,10 @@ const images = [
   },
 ];
 
-for (const img of images) {
-  gallery.insertAdjacentHTML(
-    "beforeend",
-    `<li class='li'><img class='img' src='${img.url}' atl='${img.alt}'></li>`
-  );
-}
+let arr = images
+  .map(
+    (item) => `<li><img class='img' src='${item.url} alt='${item.alt}'></li>`
+  )
+  .join("");
+
+gallery.insertAdjacentHTML("beforeend", arr);
