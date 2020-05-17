@@ -3,6 +3,7 @@ const ul = document.querySelector(".js-gallery");
 const modal = document.querySelector(".js-lightbox");
 let lightbox__content = document.querySelector(".lightbox__content");
 let btnClose = document.querySelector(".lightbox__button");
+
 array.forEach((element) => {
   ul.innerHTML += `<li><img class='gallery__image' data-src='${element.original}' src='${element.preview}' alt='${element.description}'></li>`;
 });

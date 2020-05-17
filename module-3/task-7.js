@@ -22,14 +22,18 @@ const account = {
    * Метод создает и возвращает объект транзакции.
    * Принимает сумму и тип транзакции.
    */
+  getId() {
+    return this.transactions.length;
+  },
+
   createTransaction(amount, type) {
-    let now = new Date().getTime();
+    let id = this.getId();
     const trans = {
-      id: now,
-      type: type,
-      amount: amount,
+      id,
+      type,
+      amount,
     };
-    return this.transactions.push(trans);
+    this.transactions = [...this.transactions, trans];
   },
 
   /*
@@ -85,30 +89,44 @@ const account = {
     }
   },
 
+  delTask(id) {
+    for (const task of this.transactions) {
+      if (task.id === id) {
+        const index = this.transactions.indexOf(task);
+        console.log(index);
+        this.transactions.splice(index, 1);
+        console.log(this.transactions);
+      }
+    }
+  },
+
   /*
    * Метод возвращает количество средств
    * определенного типа транзакции из всей истории транзакций
    */
   getTransactionTotal(type) {
-    let withd = 0;
-    let dep = "";
+    let dep = 0;
     if (type === "deposit") {
       for (const object of account.transactions) {
-        for (let obj in object) {
-          if (object[obj] === "deposit") {
-            console.log(`Вы пополняли свой аккаунт на - ${object.amount}`);
-          } else if (object[obj] === "withdraw") {
-            console.log(`Вы выводили деньги со счета - ${object.amount}`);
-          }
+        if (object.type === "deposit") {
+          console.log("Сколько денег вы положили на счет: " + object.amount);
         }
       }
     }
+    if (type === "withdraw") {
+      for (const object of account.transactions) {
+        if (object.type === "withdraw") {
+          console.log("Сколько денег вы сняли на счет: " + object.amount);
+        }
+      }
+    }
+    return true;
   },
 };
 
 console.log(account.deposit(100));
 console.log(account.deposit(150));
-console.log(account.transactions);
-console.log(account.withdraw(50));
-account.getTransactionTotal("deposit");
-console.log(account.getBalance());
+console.log(account.deposit(228));
+console.log(account.delTask(0));
+// console.log(account.withdraw(50));
+// console.log(account.getBalance());
