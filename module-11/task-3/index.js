@@ -6,7 +6,8 @@ class CountdownTimer {
     this.mins = document.querySelector("[data-value='mins']");
     this.secs = document.querySelector("[data-value='secs']");
   }
-  showTimer() {
+
+  setting() {
     this.now = Date.now();
     this.timeobj = this.obj.targetDate - this.now;
     this.daysobj = Math.floor(this.timeobj / (1000 * 60 * 60 * 24));
@@ -15,6 +16,9 @@ class CountdownTimer {
     );
     this.minsobj = Math.floor((this.timeobj % (1000 * 60 * 60)) / (1000 * 60));
     this.secsobj = Math.floor((this.timeobj % (1000 * 60)) / 1000);
+  }
+  showTimer() {
+    this.setting();
     this.days.textContent = this.daysobj;
     this.hours.textContent = this.hoursobj;
     this.mins.textContent = this.minsobj;
